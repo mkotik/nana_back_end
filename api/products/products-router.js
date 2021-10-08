@@ -1,6 +1,6 @@
 const express = require("express");
 const Products = require("./products-model");
-// const { generateUploadURL } = require("./s3");
+const { generateUploadURL } = require("./s3");
 const {
   categoryNameToId,
   checkPriceInventoryType,
