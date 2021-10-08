@@ -19,11 +19,16 @@ const categoryNameToId = async (req, res, next) => {
 
 const checkPriceInventoryType = async (req, res, next) => {
   const { price, inventory } = req.body;
-  if (typeof price !== "number" || typeof inventory !== "number") {
-    next({ status: 400, message: "Price and Inventory must be numbers" });
-  } else {
-    next();
+  if (price) {
+    if (typeof price !== "number") {
+      next({ status: 400, message: "Price must be a number" });
+    }
+  } else if (inventory) {
+    if (typeof inventory !== "number") {
+      next({ status: 400, message: "Inventory must be a number" });
+    }
   }
+  next();
 };
 
 const checkProdIdExists = async (req, res, next) => {
