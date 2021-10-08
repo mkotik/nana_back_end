@@ -59,14 +59,14 @@ router.put(
   }
 );
 
-// router.post("/s3Url", async (req, res, next) => {
-//   const { imgName } = req.body;
-//   try {
-//     const url = await generateUploadURL(imgName);
-//     res.status(200).send({ url });
-//   } catch (err) {
-//     next(err);
-//   }
-// });
+router.post("/s3Url", async (req, res, next) => {
+  const { imgName } = req.body;
+  try {
+    const url = await generateUploadURL(imgName);
+    res.status(200).send({ url });
+  } catch (err) {
+    next(err);
+  }
+});
 
 module.exports = router;
